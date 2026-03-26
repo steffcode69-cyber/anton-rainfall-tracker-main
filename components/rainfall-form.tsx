@@ -56,10 +56,12 @@ export function RainfallForm() {
   }
 
   return (
-    <Card>
+    <Card className="shadow-md border-0">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <CloudRain className="h-5 w-5 text-sky-500" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+            <CloudRain className="h-4 w-4 text-primary" />
+          </div>
           Add Rainfall Reading
         </CardTitle>
         <CardDescription>
@@ -109,11 +111,11 @@ export function RainfallForm() {
             <p className="text-sm text-destructive">{error}</p>
           )}
           {success && (
-            <p className="text-sm text-green-600 dark:text-green-400">
+            <p className="text-sm text-primary font-medium">
               Reading added successfully!
             </p>
           )}
-          <Button type="submit" disabled={isLoading} className="w-full">
+          <Button type="submit" disabled={isLoading} className="w-full bg-primary hover:bg-[#078282] text-primary-foreground shadow-md">
             {isLoading ? (
               <Spinner className="mr-2 h-4 w-4" />
             ) : (

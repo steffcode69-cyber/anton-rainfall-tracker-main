@@ -63,12 +63,14 @@ export function RainfallChart({ readings }: RainfallChartProps) {
   }, [readings, unit])
 
   return (
-    <Card>
+    <Card className="shadow-md border-0">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
             <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5 text-sky-500" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                <BarChart3 className="h-4 w-4 text-primary" />
+              </div>
               Monthly Rainfall
             </CardTitle>
             <CardDescription>Last 12 months of rainfall data</CardDescription>
@@ -115,8 +117,8 @@ export function RainfallChart({ readings }: RainfallChartProps) {
               />
               <Bar
                 dataKey="amount"
-                fill="hsl(199, 89%, 48%)"
-                radius={[4, 4, 0, 0]}
+                fill="#0ABAB5"
+                radius={[6, 6, 0, 0]}
               />
             </BarChart>
           </ResponsiveContainer>

@@ -79,22 +79,22 @@ export default function AdminLoginPage() {
 
   return (
     <div className="flex min-h-svh w-full flex-col bg-background">
-      <header className="flex items-center justify-between p-4">
+      <header className="flex items-center justify-between p-4 bg-card/80 backdrop-blur shadow-sm">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-500 text-white">
-            <CloudRain className="h-4 w-4" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-md">
+            <CloudRain className="h-5 w-5" />
           </div>
-          <span className="font-semibold">Rain Gauge</span>
+          <span className="text-xl font-bold tracking-tight">Rain Gauge</span>
         </Link>
         <ThemeToggle />
       </header>
       <div className="flex flex-1 items-center justify-center p-6 md:p-10">
         <div className="w-full max-w-sm">
           <div className="flex flex-col gap-6">
-            <Card>
+            <Card className="shadow-lg border-0">
               <CardHeader>
                 <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-sky-500" />
+                  <Shield className="h-5 w-5 text-primary" />
                   <CardTitle className="text-2xl">
                     {isSignUp ? 'Admin Sign Up' : 'Admin Login'}
                   </CardTitle>
@@ -132,8 +132,8 @@ export default function AdminLoginPage() {
                       />
                     </div>
                     {error && <p className="text-sm text-destructive">{error}</p>}
-                    {success && <p className="text-sm text-green-600">{success}</p>}
-                    <Button type="submit" className="w-full" disabled={isLoading}>
+                    {success && <p className="text-sm text-primary font-medium">{success}</p>}
+                    <Button type="submit" className="w-full bg-primary hover:bg-[#078282] text-primary-foreground shadow-md" disabled={isLoading}>
                       {isLoading && <Spinner className="mr-2 h-4 w-4" />}
                       {isLoading 
                         ? (isSignUp ? 'Creating account...' : 'Logging in...') 

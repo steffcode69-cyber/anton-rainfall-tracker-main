@@ -3,7 +3,15 @@ import { PublicHeader } from "@/components/public-header"
 import { RainfallStats } from "@/components/rainfall-stats"
 import { RainfallChart } from "@/components/rainfall-chart"
 import { RainfallTable } from "@/components/rainfall-table"
+import { LiveWeather } from "@/components/live-weather"
 import type { RainfallReading } from "@/lib/types"
+
+// Location coordinates for weather
+const LOCATION = {
+  latitude: -26.71171,
+  longitude: 27.83795,
+  name: "Vanderbijlpark, Gauteng, South Africa",
+}
 
 export default async function HomePage() {
   const supabase = await createClient()
@@ -19,14 +27,10 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <PublicHeader />
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Rainfall Tracker
-          </h1>
-          <p className="mt-2 text-muted-foreground">
-            View rainfall measurements and statistics
-          </p>
+      <main className="container mx-auto px-4 py-6">
+        {/* Weather widget */}
+        <div className="mb-6">
+          <LiveWeather latitude={LOCATION.latitude} longitude={LOCATION.longitude} locationName={LOCATION.name} />
         </div>
         
         <div className="flex flex-col gap-8">
